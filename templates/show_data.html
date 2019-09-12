@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+   <body>	
+	   <h3> Weather Forecast Application </h3>
+        <h6><a href ="{{url_for ('name') }}">Check For New City</a></h6>
+         <br></br>
+	 <h5 style='color:blue'>Weather Forecasts Details </h5>
+        <table border = 1>
+         {% for i in range(1) %}
+         <tr>
+            {% for key in forecasted_data[i].keys() %}
+                  <th> {{ key }}, </th>
+            {% endfor %}
+         </tr>
+             {{'\n'}}
+           {% endfor %}
+
+         {% for data in forecasted_data %}
+         <tr>
+            {% for key, value in data.iteritems() %}
+                  <td> {{ value }}, </td>
+            {% endfor %}
+         </tr>
+            {{'\n'}}
+         {% endfor %}
+      </table>
+   </body>
+</html>

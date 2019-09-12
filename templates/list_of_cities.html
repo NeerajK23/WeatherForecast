@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+   <body>	       
+	   <h3> Weather Forecast Application </h3>
+        <h6><a href ="{{url_for ('name') }}">Check for New City</a></h6>
+	<h5>Please select Your City name and time duration from Dropdown list </h5>
+        <table border = 1>
+         {% for key, value in list_of_cities.iteritems() %}
+            <tr>
+               <td> {{ value }} </td>
+            </tr>
+         {% endfor %}
+      </table>
+      <br></br>
+      <form action="{{ url_for('citykey') }}" method="post">
+             <select name="final_city">
+         {% for key, value in list_of_cities.iteritems() %}
+             <option value={{ key }}>{{ value }}</option>
+         {% endfor %}
+             </select>
+         <select name="forecaste_type">
+ <!--    <option value="today">Today</option>
+         <option value="hourbyhour">Hourly</option>
+	 <option value="weekend">Weekend</option>
+	 <option value="monthly">Monthly</option> -->
+         <option value="5day">5-Day</option>
+         <option value="tenday">10-Day</option>
+         </select>
+             <br><br>
+             <input type="submit">
+      </form>
+   </body>
+</html>
+
