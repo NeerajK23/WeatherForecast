@@ -12,7 +12,8 @@ def get_city_name_list(city_name):
     return lookup
 
 def fetch_data(city_id,forecaste_type):
-    url="https://weather.com/en-IN/weather/{}/l/{}:1:IN".format(forecaste_type,city_id)
+    country_code=city_id[0:2]
+    url="https://weather.com/en-IN/weather/{}/l/{}:1:{}".format(forecaste_type,city_id,country_code)
     page=requests.get(url)
 
     soup=BeautifulSoup(page.content,"html.parser")
